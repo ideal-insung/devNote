@@ -1,9 +1,0 @@
-package algorithm;
-
-public class MSTmain {
-
-	
-	public static void main(String[] args) {
-		MST mst = new MST(7);
-	}
-}

@@ -1,8 +1,0 @@
-package data_structure;
-
-public class LinkedListGraph {
-
-	public void graphInit(Graph ghp, int size) {
-		
-	}
-}

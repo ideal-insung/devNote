@@ -1,8 +1,0 @@
-import algorithm.main;
-
-public class cordingTe {
-
-	public static void main(String[] args) {
-		System.out.println("Hello World!");
-	}
-}
