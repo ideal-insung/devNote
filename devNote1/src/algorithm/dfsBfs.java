@@ -1,17 +1,14 @@
 package algorithm;
 
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Stack;
 
 import data_structure.LinkedListGraph;
 import data_structure.LinkedListQueue;
-import data_structure.LinkedListStack;
-import data_structure.linkList;
-import data_structure.linkList.MyNode;
 
 public class dfsBfs { //DFS&BFS
 
+	
 	boolean visited [];
 	LinkedList<Integer> []array;
 	
@@ -66,7 +63,9 @@ public class dfsBfs { //DFS&BFS
 			showArray(idx);
 		}
 	}
+	
 	public void showArray(int data) {
 		System.out.print(" "+data);
 	}
+	
 }

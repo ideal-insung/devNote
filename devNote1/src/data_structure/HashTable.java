@@ -21,7 +21,7 @@ public class HashTable {
 		this.size = size;
 	}
 	
-	public int makeIdx(String key) { //hashÈ­ ÇÏ´Â ÇÔ¼ö
+	public int makeIdx(String key) { //hashí™” í•˜ëŠ” í•¨ìˆ˜
 		int hashCode = 0;
 		for(char c:key.toCharArray()) {
 			hashCode+= c;
@@ -40,7 +40,7 @@ public class HashTable {
 		if(findNode == null) {
 			dataList.add(new Node(key,value));
 		}else {
-			findNode.value = value; //¸¸¾à °°ÀºÅ°°ªÀ» °¡Áö°íÀÖ´Ù¸é, ³ªÁß value°ªÀ¸·Î ¼ÂÆÃ
+			findNode.value = value; //ë§Œì•½ ê°™ì€í‚¤ê°’ì„ ê°€ì§€ê³ ìˆë‹¤ë©´, ë‚˜ì¤‘ valueê°’ìœ¼ë¡œ ì…‹íŒ…
 		}
 	}
 	

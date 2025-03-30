@@ -52,17 +52,8 @@ BWWBWBWWWBWW
 WBWWBWBBWWBW
 BWWBWBBWWBWW
 WBWWBWBBWWBW
-
-8 8
-WBWBWBWB
-BWBWBWBW
-WBWBWBWB
-BWBBBWBW
-WBWBWBWB
-BWBWBWBW
-WBWBWBWB
-BWBWBWBW
 */
+
 public class back1018 {
 	
 	public static int searchMinimumCnt(char[][] chess, int i, int j) {

@@ -2,7 +2,7 @@ package data_structure;
 
 public class Node {
 
-	private int val;    // node¿« value
+	private int val;    // node value
 	private Node left;  // left node
 	private Node right; // right node
 	

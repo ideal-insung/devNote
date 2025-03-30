@@ -9,7 +9,7 @@ public class LinkedListStack {
 	}
 	
 	public void push(Object obj) {
-		//½ºÅÃ ¸ÇÀ§ ¿ä¼Ò¿¡ Ãß°¡
+		//ìŠ¤íƒ ë§¨ìœ„ ìš”ì†Œì— ì¶”ê°€
 		MyNode node = new MyNode();
 		node.data = obj;
 		
@@ -20,7 +20,7 @@ public class LinkedListStack {
 	}
 	
 	public Object pop() {
-		//½ºÅÃÀÇ ¸ÇÀ§ÀÇ ¿ä¼Ò¸¦ »èÁ¦ÇÏ¸ç ¹İÈ¯
+		//ìŠ¤íƒì˜ ë§¨ìœ„ì˜ ìš”ì†Œë¥¼ ì‚­ì œí•˜ë©° ë°˜í™˜
 		if(isEmty()) throw new ArrayIndexOutOfBoundsException();
 		 
 		MyNode tmpNode = this.head;
@@ -33,16 +33,8 @@ public class LinkedListStack {
 	}
 	
 	public Object peek() {
-		// ½ºÅÃÀÇ ¸Ç À§¿ä¼Ò¸¦ ¹İÈ¯
+		// ìŠ¤íƒì˜ ë§¨ ìœ„ìš”ì†Œë¥¼ ë°˜í™˜
 		if(isEmty()) throw new ArrayIndexOutOfBoundsException();
 		return this.head.data;
-	}
-	
-	public void display() {
-		MyNode curNode = head;
-		while(curNode.next != null) {
-			System.out.println(curNode.getData());
-			curNode = curNode.next;
-		}
 	}
 }

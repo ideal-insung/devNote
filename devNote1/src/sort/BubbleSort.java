@@ -3,10 +3,10 @@ package sort;
 public class BubbleSort {
 
 	public static void bubbleSort(int[] data) {
-		int i,j; // ¹è¿­¿¡ ÀÖ´Â ¿ø¼ÒµéÀ» ¹İº¹ÀûÀ¸·Î Å½»öÇÏ±âÀ§ÇÑ ÀÎµ¦½º
+		int i,j; // ë°°ì—´ì— ìˆëŠ” ì›ì†Œë“¤ì„ ë°˜ë³µì ìœ¼ë¡œ íƒìƒ‰í•˜ê¸°ìœ„í•œ ì¸ë±ìŠ¤
 		for(i=0;i<data.length;i++) {
-			for(j=0;j<data.length-1-i;j++) { //ÁıÇÕÀÇ Å©±â¸¦ ÇÏ³ª¾¿ °¨¼ÒÇÏ¸é¼­ for¹®
-				if(data[j] > data[j+1]) { // ¿ŞÂÊ¿¡ÀÖ´Â°ªÀÌ ¿À¸¥ÂÊº¸´Ù Å©´Ù¸é,
+			for(j=0;j<data.length-1-i;j++) { //ì§‘í•©ì˜ í¬ê¸°ë¥¼ í•˜ë‚˜ì”© ê°ì†Œí•˜ë©´ì„œ forë¬¸
+				if(data[j] > data[j+1]) { // ì™¼ìª½ì—ìˆëŠ”ê°’ì´ ì˜¤ë¥¸ìª½ë³´ë‹¤ í¬ë‹¤ë©´,
 					swap(data,j);
 				}
 			}
@@ -14,7 +14,7 @@ public class BubbleSort {
 	}
 	
 	public static void swap(int data[], int i) {
-		int temp; // swap ÇÏ±â À§ÇÑ  temp µ¥ÀÌÅÍ
+		int temp; // swap í•˜ê¸° ìœ„í•œ  temp ë°ì´í„°
 		temp    = data[i]; 
 		data[i] = data[i+1]; 
 		data[i+1] = temp;
@@ -30,4 +30,5 @@ public class BubbleSort {
 		bubbleSort(array);
 		printArray(array);
 	}
+	
 }

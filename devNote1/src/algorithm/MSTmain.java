@@ -36,5 +36,4 @@ public class MSTmain {
 		mst1.MinimumSpanningTree();
 		mst1.showArr();
 	}
-	
 }

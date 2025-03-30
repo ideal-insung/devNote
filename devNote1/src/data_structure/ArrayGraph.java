@@ -1,5 +1,4 @@
 package data_structure;
-
 public class ArrayGraph {
 	private int size;
 	private int [][]array;

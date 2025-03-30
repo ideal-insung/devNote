@@ -3,7 +3,6 @@ package data_structure;
 import java.util.LinkedList;
 
 public class LinkedListGraph {
-
 	public LinkedList<Integer>[] array;
 	public int vertexCnt;
 	

@@ -8,33 +8,33 @@ public class MergeSort {
 
 	public static void mergeSort(int data[],int start , int end) {
 		if(start < end) {
-			int mid = (start+end)/2; //Áß°£°ª
-			mergeSort(data, start, mid); //Ã¹¹øÂ° ¹è¿­
-			mergeSort(data, mid+1, end); //µÎ¹øÂ° ¹è¿­
-			merge(data , start , mid , end); //mergeÇÔ¼ö
+			int mid = (start+end)/2; //ì¤‘ê°„ê°’
+			mergeSort(data, start, mid); //ì²«ë²ˆì§¸ ë°°ì—´
+			mergeSort(data, mid+1, end); //ë‘ë²ˆì§¸ ë°°ì—´
+			merge(data , start , mid , end); //mergeí•¨ìˆ˜
 		}
 	}
 	
 	public static void merge(int data[],int start , int mid ,int end) {
 		int []tmp = new int[data.length];
-		for(int i=start; i<= end; i++) { // tmpµ¥ÀÌÅÍ¿¡ ±âÁ¸µ¥ÀÌÅÍ »ğÀÔ
+		for(int i=start; i<= end; i++) { // tmpë°ì´í„°ì— ê¸°ì¡´ë°ì´í„° ì‚½ì…
 			tmp[i] = data[i];
 		}
-		int part1 = start; // Ã¹¹øÂ°¹è¿­ÀÇ start 
-		int part2 = mid+1; // µÎ¹øÂ°¹è¿­ÀÇ start 
-		int index = start; // ¹è¿­¿¡ ÀúÀåÇÒ index
+		int part1 = start; // ì²«ë²ˆì§¸ë°°ì—´ì˜ start 
+		int part2 = mid+1; // ë‘ë²ˆì§¸ë°°ì—´ì˜ start 
+		int index = start; // ë°°ì—´ì— ì €ì¥í•  index
 		
-		while(part1 <= mid && part2 <= end) { //Ã¹¹øÂ° ¹è¿­ÀÌ ³¡±îÁö µ¹°Å³ª, µÎ¹øÂ° ¹è¿­ÀÌ ³¡±îÁö µ¹¶§
-			if(tmp[part1] <= tmp[part2]) { // µÎ°³ÀÇ ¹è¿­¹æ¿¡¼­ Ã¹¹øÂ°°ªµéÀ» ºñ±³ÇØ¼­ ¾ÕÂÊÀÌ ÀÛÀ¸¸é
-				data[index] = tmp[part1]; // ÀúÀåÇÒ¹è¿­[index]¿¡ ÀúÀåÈÄ 
-				part1 ++;                 // µÚ·ÎÆ÷ÀÎÅÍ++
+		while(part1 <= mid && part2 <= end) { //ì²«ë²ˆì§¸ ë°°ì—´ì´ ëê¹Œì§€ ëŒê±°ë‚˜, ë‘ë²ˆì§¸ ë°°ì—´ì´ ëê¹Œì§€ ëŒë•Œ
+			if(tmp[part1] <= tmp[part2]) { // ë‘ê°œì˜ ë°°ì—´ë°©ì—ì„œ ì²«ë²ˆì§¸ê°’ë“¤ì„ ë¹„êµí•´ì„œ ì•ìª½ì´ ì‘ìœ¼ë©´
+				data[index] = tmp[part1]; // ì €ì¥í• ë°°ì—´[index]ì— ì €ì¥í›„ 
+				part1 ++;                 // ë’¤ë¡œí¬ì¸í„°++
 			}else {
 				data[index] = tmp[part2]; 
 				part2 ++;
 			}
 			index ++;
 		}
-		for(int i=0; i<=mid-part1; i++) { //µÎ°³Áß¿¡ µÚÂÊ¹è¿­¿¡ µ¥ÀÌÅÍ°¡ ³²¾ÆÀÖ´Â°æ¿ì 
+		for(int i=0; i<=mid-part1; i++) { //ë‘ê°œì¤‘ì— ë’¤ìª½ë°°ì—´ì— ë°ì´í„°ê°€ ë‚¨ì•„ìˆëŠ”ê²½ìš° 
 			data[index +i] = tmp[part1 + i];
 		}
 	}
@@ -50,4 +50,5 @@ public class MergeSort {
 		mergeSort(data);
 		printArray(data);
 	}
+	
 }

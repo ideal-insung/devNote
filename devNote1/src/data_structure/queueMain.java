@@ -33,5 +33,6 @@ public class queueMain {
 		while(!llq.isEmpty()) {
 			System.out.println(llq.deQueue());
 		}
+		
 	}
 }

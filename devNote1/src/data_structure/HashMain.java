@@ -15,6 +15,5 @@ public class HashMain {
 		System.out.println(ht.getHashTable("kim"));
 		System.out.println(ht.getHashTable("Jully"));
 		System.out.println(ht.getHashTable("park"));
-		
 	}
 }

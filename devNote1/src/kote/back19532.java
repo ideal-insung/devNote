@@ -12,8 +12,6 @@ dx+ey=f
  
  2 5 8 3 -4 -11
  -1 2
-
-
 */
 public class back19532 {
 
@@ -30,6 +28,5 @@ public class back19532 {
 		int v_y = (c*d - a*f) / (b*d - a*e);
 		
 		System.out.println(v_x + " " +v_y);
-		
 	}
 }

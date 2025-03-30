@@ -57,30 +57,30 @@ public class DIjkstra_Queue {
 		int vertexCnt = Integer.parseInt(st.nextToken());
 		int line      = Integer.parseInt(st.nextToken());
 		
-		ArrayList<ArrayList<Node>> graph = new ArrayList<ArrayList<Node>>(); // ±×·¡ÇÁ¸¦ »ı¼ºÇØÁÖ°í
-		for(int i=0; i<vertexCnt;i++) graph.add(new ArrayList<>()); // Á¤Á¡ÀÇ °³¼ö¸¸Å­ ±×·¡ÇÁÀÇ ¾î·¹ÀÌ¸¦ »ı¼ºÇÑ´Ù.
+		ArrayList<ArrayList<Node>> graph = new ArrayList<ArrayList<Node>>(); // ê·¸ë˜í”„ë¥¼ ìƒì„±í•´ì£¼ê³ 
+		for(int i=0; i<vertexCnt;i++) graph.add(new ArrayList<>()); // ì •ì ì˜ ê°œìˆ˜ë§Œí¼ ê·¸ë˜í”„ì˜ ì–´ë ˆì´ë¥¼ ìƒì„±í•œë‹¤.
 		
-		for(int i=0; i<line;i++) { //ÇØ´ç Á¤Á¡µéÀ» ÀÕ´ÂÀÛ¾÷ ÀÌ ÇÊ¿ä!
+		for(int i=0; i<line;i++) { //í•´ë‹¹ ì •ì ë“¤ì„ ì‡ëŠ”ì‘ì—… ì´ í•„ìš”!
 			st = new StringTokenizer(br.readLine());
 			int vertex = Integer.parseInt(st.nextToken());
 			int next   = Integer.parseInt(st.nextToken());
 			int cost   = Integer.parseInt(st.nextToken());
 			
-			graph.get(vertex).add(new Node(next, cost));// Á¤Á¡À» ÀÌ¾îÁÖ´ÂÀÛ¾÷
-			graph.get(next  ).add(new Node(vertex, cost)); //¹«¹æÇâ ±×·¡ÇÁÀÌ¹Ç·Î µÑ´Ù¼ÂÆÃ
+			graph.get(vertex).add(new Node(next, cost));// ì •ì ì„ ì´ì–´ì£¼ëŠ”ì‘ì—…
+			graph.get(next  ).add(new Node(vertex, cost)); //ë¬´ë°©í–¥ ê·¸ë˜í”„ì´ë¯€ë¡œ ë‘˜ë‹¤ì…‹íŒ…
 		
 		}
 		
-		int []distance = new int[vertexCnt]; //°Å¸®ÀÇ°ªÀ» ¼ÂÆÃÇÒ¼öÀÖ´Â ¹è¿­À» »ı¼º
-		for(int i=0;i<vertexCnt;i++) distance[i] = Integer.MAX_VALUE; // ÀüºÎ´Ù ÃÖ´ë°ªÀ¸·Î ¹Ù²ãÁÖ°í,
+		int []distance = new int[vertexCnt]; //ê±°ë¦¬ì˜ê°’ì„ ì…‹íŒ…í• ìˆ˜ìˆëŠ” ë°°ì—´ì„ ìƒì„±
+		for(int i=0;i<vertexCnt;i++) distance[i] = Integer.MAX_VALUE; // ì „ë¶€ë‹¤ ìµœëŒ€ê°’ìœ¼ë¡œ ë°”ê¿”ì£¼ê³ ,
 		
 		st = new StringTokenizer(br.readLine());
-		int start = Integer.parseInt(st.nextToken()); //start°ªÀ» ¹ŞÀºÈÄ¿¡ 
-		distance[start] = 0; // ÇØ´ç ½ºÅ¸Æ®°ªÀ» 0À¸·Î ¼ÂÆÃÇØÁØ´Ù.
+		int start = Integer.parseInt(st.nextToken()); //startê°’ì„ ë°›ì€í›„ì— 
+		distance[start] = 0; // í•´ë‹¹ ìŠ¤íƒ€íŠ¸ê°’ì„ 0ìœ¼ë¡œ ì…‹íŒ…í•´ì¤€ë‹¤.
 		
-		boolean visited[] = new boolean[vertexCnt]; //¹æ¹®Ã¼Å© ¹è¿­À» ¸¸µé¾îÁØ´Ù.
+		boolean visited[] = new boolean[vertexCnt]; //ë°©ë¬¸ì²´í¬ ë°°ì—´ì„ ë§Œë“¤ì–´ì¤€ë‹¤.
 		
-		//ÀÌÁ¦ Å¥¸¦ ¸¸µé¾î¼­ ´ÙÀÍ½ºÆ®¶ó ½ÇÇà!
+		//ì´ì œ íë¥¼ ë§Œë“¤ì–´ì„œ ë‹¤ìµìŠ¤íŠ¸ë¼ ì‹¤í–‰!
 		PriorityQueue<Node> que = new PriorityQueue<>();
 		que.offer(new Node(start, 0));
 		System.out.println(Arrays.toString(distance));
@@ -90,9 +90,9 @@ public class DIjkstra_Queue {
 			if(visited[curNode.idx]) continue;
 			
 			visited[curNode.idx] = true;
-			//ÇöÀç³ëµå¸¦ »Ì¾Æ¼­ ÀÎÁ¢ÇØÀÖ´Â ³ëµåµé°ú cost°ªÀ» ºñ±³ÇØÁØ´Ù. distance ¹è¿­ÀÇ °ª°ú Áï for¹®À» µ¹·Á¾ßÇÑ´Ù. 
-			//¸î°³¸¸Å­? -> ÇöÀç³ëµå¸®½ºÆ®ÀÇ »çÀÌÁî¸¸Å­
-			for(int i= 0; i< graph.get(curNode.idx).size();i++) { // nextNode¸¦²¨³»¼­ºñ±³ ÇÑ´Ù.
+			//í˜„ì¬ë…¸ë“œë¥¼ ë½‘ì•„ì„œ ì¸ì ‘í•´ìˆëŠ” ë…¸ë“œë“¤ê³¼ costê°’ì„ ë¹„êµí•´ì¤€ë‹¤. distance ë°°ì—´ì˜ ê°’ê³¼ ì¦‰ forë¬¸ì„ ëŒë ¤ì•¼í•œë‹¤. 
+			//ëª‡ê°œë§Œí¼? -> í˜„ì¬ë…¸ë“œë¦¬ìŠ¤íŠ¸ì˜ ì‚¬ì´ì¦ˆë§Œí¼
+			for(int i= 0; i< graph.get(curNode.idx).size();i++) { // nextNodeë¥¼êº¼ë‚´ì„œë¹„êµ í•œë‹¤.
 				Node nextNode = graph.get(curNode.idx).get(i);
 				if(distance[nextNode.idx] > distance[curNode.idx] + nextNode.cost ) {
 					distance[nextNode.idx] = distance[curNode.idx] + nextNode.cost;
@@ -102,7 +102,5 @@ public class DIjkstra_Queue {
 		}
 		System.out.println(Arrays.toString(distance));
 		show(graph);
-		
-		
 	}
 }

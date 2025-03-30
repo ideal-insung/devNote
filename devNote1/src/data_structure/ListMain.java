@@ -25,5 +25,6 @@ public class ListMain {
 		System.out.println(list.toString());
 		list.remove("C");
 		System.out.println(list.toString());
+		
 	}
 }

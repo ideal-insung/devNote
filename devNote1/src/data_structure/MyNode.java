@@ -5,12 +5,12 @@ public class MyNode{
 	public MyNode next;
 	public int cost;
 	
-	public MyNode() { //node의 생성자함수
+	public MyNode() { 
 		this.data = null;
 		this.next = null;
 	}
 	
-	public MyNode(Object data) { //node의 생성자함수
+	public MyNode(Object data) { 
 		this.data = data;
 		this.next = null;
 	}
@@ -18,4 +18,5 @@ public class MyNode{
 	public String getData() {
 		return String.valueOf(this.data);
 	}
+	
 }

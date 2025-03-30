@@ -17,7 +17,6 @@ import java.util.Scanner;
 4 5 30 
 0
 */
-
 public class DIjkstra_Sequential {
 	public static class Node{
 		int idx;
@@ -39,21 +38,21 @@ public class DIjkstra_Sequential {
 	}
 	
 	/*
-//	graph  => array[Node] ·Î ¸¸µç´Ù.
-	dist[]  ==> Á¤Á¡ ³ëµå¿¡¼­ ´ÙÀ½³ëµå±îÁöÀÇ °Å¸®(0,1,30) 
+//	graph  => array[Node] ë¡œ ë§Œë“ ë‹¤.
+	dist[]  ==> ì •ì  ë…¸ë“œì—ì„œ ë‹¤ìŒë…¸ë“œê¹Œì§€ì˜ ê±°ë¦¬(0,1,30) 
 	 
 	*/
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int vertexCnt = sc.nextInt();
 		int line = sc.nextInt();
-		//graph arrayList<arrayList<Node>> »ı¼º
+		//graph arrayList<arrayList<Node>> ìƒì„±
 		ArrayList<ArrayList<Node>> graph = new ArrayList<ArrayList<Node>>();
-		// °¢ Á¤Á¡º°·Î arrayList ÇÏ³ª¾¿ ¸¸µé²¨±â ¶§¹®¿¡ arrayList »ı¼º
+		// ê° ì •ì ë³„ë¡œ arrayList í•˜ë‚˜ì”© ë§Œë“¤êº¼ê¸° ë•Œë¬¸ì— arrayList ìƒì„±
 		for(int i=0;i<vertexCnt;i++) {
 			graph.add(new ArrayList<>());
 		}
-		//°£¼± ÀÌ¾îÁÖ±â ÀÛ¾÷ ½ÃÀÛ
+		//ê°„ì„  ì´ì–´ì£¼ê¸° ì‘ì—… ì‹œì‘
 		for(int i=0; i<line;i++) {
 			int vertex = sc.nextInt();
 			int next   = sc.nextInt();
@@ -61,39 +60,39 @@ public class DIjkstra_Sequential {
 			graph.get(vertex).add(new Node(next,cost));
 			graph.get(next).add(new Node(vertex,cost));
 		}
-		//°Å¸® ¹è¿­À» ÃÊ±âÈ­½ÃÅ²´Ù.
+		//ê±°ë¦¬ ë°°ì—´ì„ ì´ˆê¸°í™”ì‹œí‚¨ë‹¤.
 		int dist[] = new int[vertexCnt];
 		for(int i=0; i<dist.length;i++) dist[i] = Integer.MAX_VALUE;
 		
-		//¾î¶² ³ëµåºÎÅÍ ½ÃÀÛÇÒÁö ¹Ş¾Æ¼­, ±× ³ëµå´Â dist¹è¿­¿¡ 0À¸·Î ÃÊ±âÈ­
+		//ì–´ë–¤ ë…¸ë“œë¶€í„° ì‹œì‘í• ì§€ ë°›ì•„ì„œ, ê·¸ ë…¸ë“œëŠ” distë°°ì—´ì— 0ìœ¼ë¡œ ì´ˆê¸°í™”
 		int start = sc.nextInt();
 		dist[start] = 0;
 		boolean visited[] = new boolean[vertexCnt];
 		System.out.println(Arrays.toString(dist));
 		show(graph);
 		
-		//dijkstra ¾Ë°í¸®Áò ¼öÇà
-		//±ÙÃ³³ëµå ÃÖ´Ü°Å¸® Ã£´ÂÀÛ¾÷ ½ÃÀÛ
+		//dijkstra ì•Œê³ ë¦¬ì¦˜ ìˆ˜í–‰
+		//ê·¼ì²˜ë…¸ë“œ ìµœë‹¨ê±°ë¦¬ ì°¾ëŠ”ì‘ì—… ì‹œì‘
 		for(int i=0;i<vertexCnt;i++) {
-			//1. ÇöÀç °Å¸® ºñ¿ë Áß ÃÖ¼ÒÀÎ ÁöÁ¡À» ¼±ÅÃÇÑ´Ù.
-		    // ÇØ´ç ³ëµå°¡ °¡Áö°í ÀÖ´Â ÇöÀç ºñ¿ë.
+			//1. í˜„ì¬ ê±°ë¦¬ ë¹„ìš© ì¤‘ ìµœì†Œì¸ ì§€ì ì„ ì„ íƒí•œë‹¤.
+		    // í•´ë‹¹ ë…¸ë“œê°€ ê°€ì§€ê³  ìˆëŠ” í˜„ì¬ ë¹„ìš©.
 			int min = Integer.MAX_VALUE;
-			// ÇØ´ç ³ëµåÀÇ ÀÎµ¦½º(¹øÈ£)
+			// í•´ë‹¹ ë…¸ë“œì˜ ì¸ë±ìŠ¤(ë²ˆí˜¸)
 			int nodeIdx = -1;
 			for(int j=0;j<vertexCnt;j++) {
-				// ÇØ´ç ³ëµå¸¦ ¹æ¹®ÇÏÁö ¾Ê¾Ò°í, ÇöÀç ¸ğµç °Å¸®ºñ¿ë Áß ÃÖ¼Ú°ªÀ» Ã£´Â´Ù.
+				// í•´ë‹¹ ë…¸ë“œë¥¼ ë°©ë¬¸í•˜ì§€ ì•Šì•˜ê³ , í˜„ì¬ ëª¨ë“  ê±°ë¦¬ë¹„ìš© ì¤‘ ìµœì†Ÿê°’ì„ ì°¾ëŠ”ë‹¤.
 				if(dist[j]<min && !visited[j]) {
 					min = dist[j];
 					nodeIdx = j;
 				}
 			}
 			
-			//ÇØ´ç ³ëµå¸¦ ¹æ¹®Ã³¸® ÇÑ´Ù.
+			//í•´ë‹¹ ë…¸ë“œë¥¼ ë°©ë¬¸ì²˜ë¦¬ í•œë‹¤.
 			visited[nodeIdx] = true;
 			for(int j=0;j<graph.get(nodeIdx).size();j++) {
-				Node curNode = graph.get(nodeIdx).get(j); //ÀÎÁ¢³ëµå¿Í ºñ±³ÇÒ³ëµå¸¦ »Ì´Â´Ù.
-				// ÀÎÁ¢ ³ëµå°¡ ÇöÀç °¡Áö´Â ÃÖ¼Ò ºñ¿ë°ú
-				// ÇöÀç ¼±ÅÃµÈ ³ëµåÀÇ °ª + ÇöÀç ³ëµå¿¡¼­ ÀÎÁ¢ ³ëµå·Î °¡´Â °ªÀ» ºñ±³ÇÏ¿© ´õ ÀÛÀº °ªÀ¸·Î °»½ÅÇÑ´Ù.
+				Node curNode = graph.get(nodeIdx).get(j); //ì¸ì ‘ë…¸ë“œì™€ ë¹„êµí• ë…¸ë“œë¥¼ ë½‘ëŠ”ë‹¤.
+				// ì¸ì ‘ ë…¸ë“œê°€ í˜„ì¬ ê°€ì§€ëŠ” ìµœì†Œ ë¹„ìš©ê³¼
+				// í˜„ì¬ ì„ íƒëœ ë…¸ë“œì˜ ê°’ + í˜„ì¬ ë…¸ë“œì—ì„œ ì¸ì ‘ ë…¸ë“œë¡œ ê°€ëŠ” ê°’ì„ ë¹„êµí•˜ì—¬ ë” ì‘ì€ ê°’ìœ¼ë¡œ ê°±ì‹ í•œë‹¤.
 				if(dist[nodeIdx]+ curNode.cost < dist[curNode.idx]) {
 					dist[curNode.idx] = dist[nodeIdx]+ curNode.cost;
 				}
@@ -101,5 +100,6 @@ public class DIjkstra_Sequential {
 		}
 		
 		System.out.println(Arrays.toString(dist));
+		
 	}
 }

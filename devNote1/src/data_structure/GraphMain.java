@@ -21,7 +21,5 @@ public class GraphMain {
 		
 		llg.display();
 		
-		
-		System.out.println("Hello World!");
 	}
 }

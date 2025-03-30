@@ -3,17 +3,17 @@ package sort;
 public class InsertionSort {
 
 	public static void insertSort(int data[]) {
-		int i,j; // ¹è¿­¿¡ ÀÖ´Â ¿ø¼ÒµéÀ» ¹İº¹ÀûÀ¸·Î Å½»öÇÏ±âÀ§ÇÑ ÀÎµ¦½º
+		int i,j; // ë°°ì—´ì— ìˆëŠ” ì›ì†Œë“¤ì„ ë°˜ë³µì ìœ¼ë¡œ íƒìƒ‰í•˜ê¸°ìœ„í•œ ì¸ë±ìŠ¤
 		for(i=0;i<data.length-1;i++) {
-			j=i; //ÇöÀç Á¤·ÄÇÒ  ±× ¿ø¼Ò¸¦ ¼±ÅÃÇØ¼­ ÀûÀıÇÑ À§Ä¡¿¡ »ğÀÔÇÒ¼ö ÀÖµµ·Ï
-			while(j >= 0 && data[j] > data[j+1]) { // ¿ŞÂÊ¿¡ÀÖ´Â°ªÀÌ ¿À¸¥ÂÊ¿¡ÀÖ´Â°ª°ú ´õ Å©´Ù¸é,
+			j=i; //í˜„ì¬ ì •ë ¬í•   ê·¸ ì›ì†Œë¥¼ ì„ íƒí•´ì„œ ì ì ˆí•œ ìœ„ì¹˜ì— ì‚½ì…í• ìˆ˜ ìˆë„ë¡
+			while(j >= 0 && data[j] > data[j+1]) { // ì™¼ìª½ì—ìˆëŠ”ê°’ì´ ì˜¤ë¥¸ìª½ì—ìˆëŠ”ê°’ê³¼ ë” í¬ë‹¤ë©´,
 				swap(data, j);
 				j--;
 			}
 		}
 	}
 	public static void swap(int data[], int i) {
-		int temp; // swap ÇÏ±â À§ÇÑ  temp µ¥ÀÌÅÍ
+		int temp; // swap í•˜ê¸° ìœ„í•œ  temp ë°ì´í„°
 		temp    = data[i]; 
 		data[i] = data[i+1]; 
 		data[i+1] = temp;
@@ -29,4 +29,5 @@ public class InsertionSort {
 		insertSort(array);
 		printArray(array);
 	}
+	
 }

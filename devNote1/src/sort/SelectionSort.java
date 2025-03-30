@@ -3,16 +3,16 @@ package sort;
 public class SelectionSort {
 
 	public static void selectSort(int data[]) {
-		int i,j;  // ¹è¿­¿¡ ÀÖ´Â ¿ø¼ÒµéÀ» ¹İº¹ÀûÀ¸·Î Å½»öÇÏ±âÀ§ÇÑ ÀÎµ¦½º
-		int min;  // °¡Àå ÀÛÀº °ÍÀ» ¼±ÅÃÇÏ±âÀ§ÇÑ ÀÎµ¦½º
-        int index = 0; //°¡Àå ÀÛÀº ¿ø¼ÒÀÇ ÀÎµ¦½º
+		int i,j;  // ë°°ì—´ì— ìˆëŠ” ì›ì†Œë“¤ì„ ë°˜ë³µì ìœ¼ë¡œ íƒìƒ‰í•˜ê¸°ìœ„í•œ ì¸ë±ìŠ¤
+		int min;  // ê°€ì¥ ì‘ì€ ê²ƒì„ ì„ íƒí•˜ê¸°ìœ„í•œ ì¸ë±ìŠ¤
+        int index = 0; //ê°€ì¥ ì‘ì€ ì›ì†Œì˜ ì¸ë±ìŠ¤
         
         for(i=0;i<data.length;i++) {
         	min = 9999;
         	for(j=i;j<data.length;j++) { 
-        		if(min > data[j]) { // Å½»öÇÏ°íÀÖ´Â ¿ø¼Ò°¡, ÇöÀç ÃÖ¼Ú°ªº¸´Ù ´õ ÀÛ´Ù¸é
-        			min = data[j]; // ±× ¿ø¼Ò·Î ¹Ù²ãÁØ´Ù.
-        			index = j; // ÀÎµ¦½º ÀúÀå
+        		if(min > data[j]) { // íƒìƒ‰í•˜ê³ ìˆëŠ” ì›ì†Œê°€, í˜„ì¬ ìµœì†Ÿê°’ë³´ë‹¤ ë” ì‘ë‹¤ë©´
+        			min = data[j]; // ê·¸ ì›ì†Œë¡œ ë°”ê¿”ì¤€ë‹¤.
+        			index = j; // ì¸ë±ìŠ¤ ì €ì¥
         		}
         	}
         	swap(data, i , index);
@@ -20,7 +20,7 @@ public class SelectionSort {
 	}
 	
 	public static void swap(int data[], int i , int j) {
-		int temp; // swap ÇÏ±â À§ÇÑ  temp µ¥ÀÌÅÍ
+		int temp; // swap í•˜ê¸° ìœ„í•œ  temp ë°ì´í„°
 		temp    = data[i]; 
 		data[i] = data[j]; 
 		data[j] = temp;
@@ -36,4 +36,5 @@ public class SelectionSort {
 		selectSort(array);
 		printArray(array);
 	}
+	
 }

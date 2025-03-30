@@ -15,29 +15,29 @@ public class treeMain {
 			if(command.equals("add")) {
 				bst.add(bst, sc);
 			}else if(command.equals("delete")) {
-				System.out.println("»èÁ¦ÇÒ Á¤¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+				System.out.println("ì‚­ì œí•  ì •ìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 				int num = sc.nextInt();
-				System.out.println("»èÁ¦ÇÒ Á¤¼ö :" + num);
+				System.out.println("ì‚­ì œí•  ì •ìˆ˜ :" + num);
 				bst.delete(root, num);
 			}else if(command.equals("search")) {
-				System.out.println("°Ë»öÇÒ Á¤¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+				System.out.println("ê²€ìƒ‰í•  ì •ìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 				int num = sc.nextInt();
-				System.out.println("°Ë»öÇÒ Á¤¼ö :" + num);
+				System.out.println("ê²€ìƒ‰í•  ì •ìˆ˜ :" + num);
 				Node findNode = bst.search(root, num);
-				if(findNode == null) System.out.println("°Ë»öÇÑ °ªÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.");
-				else System.out.println("°Ë»öÇÑ °ªÀÌ Á¸ÀçÇÕ´Ï´Ù!" + findNode.getVal());
+				if(findNode == null) System.out.println("ê²€ìƒ‰í•œ ê°’ì´ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
+				else System.out.println("ê²€ìƒ‰í•œ ê°’ì´ ì¡´ì¬í•©ë‹ˆë‹¤!" + findNode.getVal());
 			}else if(command.equals("max")) {
 				Node maxNode = bst.findMax(root);
-				System.out.println("°¡Àå Å« °ªÀº " + maxNode.getVal() + "ÀÔ´Ï´Ù!");
+				System.out.println("ê°€ì¥ í° ê°’ì€ " + maxNode.getVal() + "ì…ë‹ˆë‹¤!");
 			}else if(command.equals("min")) {
 				Node minNode = bst.findMini(root);
-				System.out.println("°¡Àå ÀÛÀº °ªÀº " + minNode.getVal() + "ÀÔ´Ï´Ù!");
+				System.out.println("ê°€ì¥ ì‘ì€ ê°’ì€ " + minNode.getVal() + "ì…ë‹ˆë‹¤!");
 			}else if(command.equals("show")) {
 				bst.show();
 			}else if(command.equals("exit")) {
 				return;
 			}else {
-				System.out.println("Àß¸ø ÀÔ·ÂÇÏ¼Ì½À´Ï´Ù.");
+				System.out.println("ì˜ëª» ì…ë ¥í•˜ì…¨ìŠµë‹ˆë‹¤.");
 			}
 		}
 	}

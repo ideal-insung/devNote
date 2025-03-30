@@ -7,36 +7,36 @@ public class HeapSort {
 	}
 	public static void heapSort(int[] data, int size) {
 		if(size < 2) return; 
-		for(int i=size-1; i >= 0; i--) { // 1Â÷ heapify
+		for(int i=size-1; i >= 0; i--) { // 1ì°¨ heapify
 			heapfiy(data,i,size);
 		}
 		
-		for(int i=size-1; i>0;i--) { //ÃÖ´ëÈüÀ» ¸¸µé°í ³ª¸ÓÁöµé·Î heapify
+		for(int i=size-1; i>0;i--) { //ìµœëŒ€í™ì„ ë§Œë“¤ê³  ë‚˜ë¨¸ì§€ë“¤ë¡œ heapify
 			swap(data,0,i);
 			heapfiy(data,0,i);
 		}
 	}
 	
 	public static void heapfiy(int[] data, int parentIdx, int size) {
-		int leftIdx  = parentIdx * 2 + 1; //ÀÚ½ÄÀÇ ¿ŞÂÊidx
-		int rightIdx = leftIdx +1;        //ÀÚ½ÄÀÇ ¿À¸¥ÂÊidx
-		int largeIdx;                     //µÑÁß°¡Àå Å« idx
+		int leftIdx  = parentIdx * 2 + 1; //ìì‹ì˜ ì™¼ìª½idx
+		int rightIdx = leftIdx +1;        //ìì‹ì˜ ì˜¤ë¥¸ìª½idx
+		int largeIdx;                     //ë‘˜ì¤‘ê°€ì¥ í° idx
 		
-		if(leftIdx < size && data[leftIdx] > data[rightIdx]) { //¿ŞÂÊidx´Â »çÀÌÁî¸¦ ³Ñ±âÁö¾Ê°í, ¿ŞÂÊ°ªÀÌ Å©¸é largeidx´Â ¿ŞÂÊÀÎµ¦½º
+		if(leftIdx < size && data[leftIdx] > data[rightIdx]) { //ì™¼ìª½idxëŠ” ì‚¬ì´ì¦ˆë¥¼ ë„˜ê¸°ì§€ì•Šê³ , ì™¼ìª½ê°’ì´ í¬ë©´ largeidxëŠ” ì™¼ìª½ì¸ë±ìŠ¤
 			largeIdx = leftIdx;
-		}else if(rightIdx < size && data[leftIdx] < data[rightIdx]) {//¿À¸¥ÂÊidx´Â »çÀÌÁî¸¦ ³Ñ±âÁö¾Ê°í, ¿À¸¥ÂÊ°ªÀÌ Å©¸é largeidx´Â ¿À¸¥ÂÊÀÎµ¦½º
+		}else if(rightIdx < size && data[leftIdx] < data[rightIdx]) {//ì˜¤ë¥¸ìª½idxëŠ” ì‚¬ì´ì¦ˆë¥¼ ë„˜ê¸°ì§€ì•Šê³ , ì˜¤ë¥¸ìª½ê°’ì´ í¬ë©´ largeidxëŠ” ì˜¤ë¥¸ìª½ì¸ë±ìŠ¤
 			largeIdx = rightIdx;
-		}else { // largeIdxÀÇ º¯°æÃ³¸®°¡ ÀÌ·ç¾îÁöÁö¾ÊÀ¸¸é swap, Àç±Í ÇÒÇÊ¿ä ¾øÀ¸¹Ç·Î ÀÎµ¦½º¸¦ -1·Î ÃÊ±âÈ­
+		}else { // largeIdxì˜ ë³€ê²½ì²˜ë¦¬ê°€ ì´ë£¨ì–´ì§€ì§€ì•Šìœ¼ë©´ swap, ì¬ê·€ í• í•„ìš” ì—†ìœ¼ë¯€ë¡œ ì¸ë±ìŠ¤ë¥¼ -1ë¡œ ì´ˆê¸°í™”
 			largeIdx = -1;
 		}
-		if(largeIdx != -1 && data[largeIdx] > data[parentIdx]) {// ÀÚ½ÄÀÇ ³ëµå°ªÀÌ ºÎ¸ğÀÇ ³ëµå°ªº¸´Ù Å©´Ù¸é ½º¿ÒÈÄ heapify Àç±ÍÈ£Ãâ
+		if(largeIdx != -1 && data[largeIdx] > data[parentIdx]) {// ìì‹ì˜ ë…¸ë“œê°’ì´ ë¶€ëª¨ì˜ ë…¸ë“œê°’ë³´ë‹¤ í¬ë‹¤ë©´ ìŠ¤ì™‘í›„ heapify ì¬ê·€í˜¸ì¶œ
 			swap(data,largeIdx,parentIdx);
 			heapfiy(data, largeIdx, size-1);
 		}
 	}
 	
 	public static void swap(int data[], int i , int j) {
-		int temp; // swap ÇÏ±â À§ÇÑ  temp µ¥ÀÌÅÍ
+		int temp; // swap í•˜ê¸° ìœ„í•œ  temp ë°ì´í„°
 		temp    = data[i]; 
 		data[i] = data[j]; 
 		data[j] = temp;
@@ -53,4 +53,5 @@ public class HeapSort {
 		heapSort(data);
 		printArray(data);
 	}
+	
 }

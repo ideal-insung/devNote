@@ -3,9 +3,9 @@ package algorithm;
 import algorithm.Edge;
 
 class Edge implements Comparable<Edge>{
-	int x;    //1번노드
-	int y;    //2번노드
-	int cost; //비용
+	int x;    
+	int y;    
+	int cost; 
 	public Edge(int x, int y, int cost) {
 		this.x= x;
 		this.y= y;

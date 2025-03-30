@@ -6,9 +6,10 @@ public class ArrayStack {
 	int top;
 	Object data[];
 	
+	
 	public ArrayStack(int size){
 		this.data = new Object[size];
-		this.top = -1 ; //-1로 초기화
+		this.top = -1 ; 
 		this.size = size;
 	}
 	

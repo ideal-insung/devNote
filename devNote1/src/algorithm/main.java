@@ -1,5 +1,4 @@
 package algorithm;
-
 import data_structure.LinkedListGraph;
 
 public class main {

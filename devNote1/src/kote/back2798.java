@@ -2,11 +2,6 @@ package kote;
 
 import java.util.Scanner;
 
-	/*
-	Ä«µå NÀåÁß M°ú °¡Àå °¡±î¿î ¼ö¸¦ »Ì´Â 
-	ºí·¢Àè °ÔÀÓ 
-
-	 */
 public class back2798 {
 	public static int blackJack(int[]cards, int count, int target) {
         int sum = 0;
@@ -15,7 +10,7 @@ public class back2798 {
         if(cards == null) return -1;
         for(int i=0;i<count-2;i++) { //0,1,2
         	for(int j=i+1; j< count-1; j++) { //1,2,3
-        		for(int z = j+1; z< count; z++) { //2,3,4ÀÎµ¦½º
+        		for(int z = j+1; z< count; z++) { //2,3,4ï¿½Îµï¿½ï¿½ï¿½
         			if(cards[i]+cards[j]+cards[z] == target) {
         				sum = cards[i]+cards[j]+cards[z];
         				return sum;

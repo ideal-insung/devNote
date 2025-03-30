@@ -11,10 +11,10 @@ public class LinkedListQueue {
 	
 	public void enQueue(Object data) {
 		MyNode newNode = new MyNode();
-		newNode.data = data; //newNode value ÃÊ±âÈ­
-		newNode.next = null; //newNode next ÃÊ±âÈ­
+		newNode.data = data; //newNode value ì´ˆê¸°í™”
+		newNode.next = null; //newNode next ì´ˆê¸°í™”
 
-		if(isEmpty()) { //Å¥°¡ ºñ¾îÀÖ´Ù¸é,
+		if(isEmpty()) { //íê°€ ë¹„ì–´ìˆë‹¤ë©´,
 			this.head= newNode; 
 			this.tail = newNode;
 			return;
@@ -26,12 +26,12 @@ public class LinkedListQueue {
 	
 	public Object deQueue() {
 		if(isEmpty()) throw new NullPointerException();
-		Object obj = this.head.data; //ÇØ´ç data ÀúÀå
-		MyNode tmpNode = this.head; //tmpNode ÀúÀå
-		this.head = this.head.next; //next¸¦ Çìµå°ªÀ¸·ÎÀúÀå
-		tmpNode.next = null; //ÃÊ±âÈ­
-		tmpNode.data = null; //ÃÊ±âÈ­
-		if(this.head == null) this.tail = null; //¸¸¾à head°¡ nullÀÌ¸é tailµµ null·Î ÃÊ±âÈ­
+		Object obj = this.head.data; //í•´ë‹¹ data ì €ì¥
+		MyNode tmpNode = this.head; //tmpNode ì €ì¥
+		this.head = this.head.next; //nextë¥¼ í—¤ë“œê°’ìœ¼ë¡œì €ì¥
+		tmpNode.next = null; //ì´ˆê¸°í™”
+		tmpNode.data = null; //ì´ˆê¸°í™”
+		if(this.head == null) this.tail = null; //ë§Œì•½ headê°€ nullì´ë©´ tailë„ nullë¡œ ì´ˆê¸°í™”
 		return obj;
 	}
 }

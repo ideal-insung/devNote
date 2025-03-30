@@ -1,9 +1,9 @@
 package data_structure;
 
-public class ArrayQueue { //¿øÇüÅ¥
+public class ArrayQueue { 
 
-	int front; // deque ÀÎµ¦½º
-	int rear;  // inque ÀÎµ¦½º
+	int front; // deque
+	int rear;  // inque
 	int size;  // 
 	int cnt;
 	Object data[];

@@ -44,4 +44,3 @@ public class fibo {
 		System.out.println(f.fibo_sequence1(10));
 	}
 }
-

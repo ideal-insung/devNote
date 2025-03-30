@@ -6,8 +6,8 @@ public class QuickSort {
 	}
 	
 	public static void quickSort(int[] data, int start , int end) {
-		int part = partitionBy(data,start,end); //2¹øÂ° ÆÄÆ¼¼ÇÀÇ Ã¹¹øÂ° ½ºÅ¸Æ®°ª
-		if(start < part -1) { //ÆÄÆ¼¼Ç ³ª´«´Ù
+		int part = partitionBy(data,start,end); //2ë²ˆì§¸ íŒŒí‹°ì…˜ì˜ ì²«ë²ˆì§¸ ìŠ¤íƒ€íŠ¸ê°’
+		if(start < part -1) { //íŒŒí‹°ì…˜ ë‚˜ëˆˆë‹¤
 			quickSort(data, start, part-1);
 		}
 		if(part < end) {
@@ -16,21 +16,21 @@ public class QuickSort {
 	}
 	
 	public static int partitionBy(int[] data, int start, int end) {
-		int pivot = data[(start+end)/2]; // ½ÃÀÛ°ú ³¡À» ´õÇÏ°í, 2¸¦ ³ª´²¼­ Áß°£ÁöÁ¡ °è»ê
-		while(start <= end) { // ½ÃÀÛÁ¡ÀÌ ³¡ÁöÁ¡º¸´Ù ÀÛ°Å³ª °°Àºµ¿¾È¸¸ ¹İº¹
-			while(data[start] < pivot) start ++; //½ºÅ¸Æ®Æ÷ÀÎÆ®ºÎÅÍ ÇÇ¹ş°ªº¸´Ù ÀÛÀ¸¸é ¹«½Ã
-			while(data[end] > pivot) end --;     //¿£µåÆ÷ÀÎÆ®ºÎÅÍ ¹è¿­¹æÀÇ °ªÀÌ ÇÇ¹ş°ª Å©¸é ¹«½Ã
-			if(start <= end) { //¼­·Î ¸¸³µ´ÂÁö È®ÀÎÈÄ ½º¿Ò
+		int pivot = data[(start+end)/2]; // ì‹œì‘ê³¼ ëì„ ë”í•˜ê³ , 2ë¥¼ ë‚˜ëˆ ì„œ ì¤‘ê°„ì§€ì  ê³„ì‚°
+		while(start <= end) { // ì‹œì‘ì ì´ ëì§€ì ë³´ë‹¤ ì‘ê±°ë‚˜ ê°™ì€ë™ì•ˆë§Œ ë°˜ë³µ
+			while(data[start] < pivot) start ++; //ìŠ¤íƒ€íŠ¸í¬ì¸íŠ¸ë¶€í„° í”¼ë²—ê°’ë³´ë‹¤ ì‘ìœ¼ë©´ ë¬´ì‹œ
+			while(data[end] > pivot) end --;     //ì—”ë“œí¬ì¸íŠ¸ë¶€í„° ë°°ì—´ë°©ì˜ ê°’ì´ í”¼ë²—ê°’ í¬ë©´ ë¬´ì‹œ
+			if(start <= end) { //ì„œë¡œ ë§Œë‚¬ëŠ”ì§€ í™•ì¸í›„ ìŠ¤ì™‘
 				swap(data,start,end);
-				start ++ ; //¿À¸¥ÂÊÀ¸·Î Æ÷ÀÎÅÍÀÌµ¿
-				end --; //¿ŞÂÊÀ¸·Î Æ÷ÀÎÅÍÀÌµ¿
+				start ++ ; //ì˜¤ë¥¸ìª½ìœ¼ë¡œ í¬ì¸í„°ì´ë™
+				end --; //ì™¼ìª½ìœ¼ë¡œ í¬ì¸í„°ì´ë™
 			}
 		}
 		return start;
 	}
 	
 	public static void swap(int data[], int i , int j) {
-		int temp; // swap ÇÏ±â À§ÇÑ  temp µ¥ÀÌÅÍ
+		int temp; // swap í•˜ê¸° ìœ„í•œ  temp ë°ì´í„°
 		temp    = data[i]; 
 		data[i] = data[j]; 
 		data[j] = temp;
@@ -46,4 +46,5 @@ public class QuickSort {
 		quickSort(data);
 		printArray(data);
 	}
+	
 }

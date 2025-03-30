@@ -3,14 +3,8 @@ package kote;
 import java.util.Scanner;
 
 /*
-자연수 m이 있을때, m의 분해합: n
-m을 n의 생성자
-ex)256(=245+2+4+5) 245는 256의 생성장
-
-N = x의 첫번째자리값 + x두번째 자리값 + x세번째 자리값 + x
 
 216
-
 198
 
 */

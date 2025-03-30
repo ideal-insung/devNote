@@ -1,7 +1,5 @@
 package data_structure;
 
-import java.util.Queue;
-
 public class StackMain {
 
 	public static void main(String[] args) {
@@ -13,7 +11,7 @@ public class StackMain {
 		lls.push("D");
 		
 		while(!lls.isEmty()) {
-			System.out.print("popµÈ µ¥ÀÌÅÍ :");
+			System.out.print("popï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ :");
 			System.out.println(lls.pop());
 		}
 		

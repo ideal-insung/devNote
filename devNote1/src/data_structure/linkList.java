@@ -3,14 +3,13 @@ package data_structure;
 import java.util.Arrays;
 public class linkList {
 
-	public MyNode head;
-	public MyNode tail;
-	public int size;
-	
-	public class MyNode{
-		public Object data;
-		public MyNode next;
-		public MyNode(Object data) { //nodeÀÇ »ı¼ºÀÚÇÔ¼ö
+	private Node head;
+	private Node tail;
+	private int size;
+	private class Node{
+		private Object data;
+		private Node next;
+		public Node(Object data) { //nodeì˜ ìƒì„±ìí•¨ìˆ˜
 			this.data = data;
 			this.next = null;
 		}
@@ -19,69 +18,69 @@ public class linkList {
 		}
 	}
 	
-	public String toString() { //¿¬°á¸®½ºÆ® toString
-		MyNode n = head;
+	public String toString() { //ì—°ê²°ë¦¬ìŠ¤íŠ¸ toString
+		Node n = head;
 		if(head == null) return "[]";
-		Object[] arrays = new Object[size]; //obj¹è¿­ ÀÎ½ºÅÏ½º»ı¼º
-		int idx=0; //¹İº¹idx
-		while(n != null) { //³ëµå°¡ nullÀÌ ¾Æ´Ï¸é
-			arrays[idx] =n.data; //idx¿¡ µ¥ÀÌÅÍ ÀúÀå
+		Object[] arrays = new Object[size]; //objë°°ì—´ ì¸ìŠ¤í„´ìŠ¤ìƒì„±
+		int idx=0; //ë°˜ë³µidx
+		while(n != null) { //ë…¸ë“œê°€ nullì´ ì•„ë‹ˆë©´
+			arrays[idx] =n.data; //idxì— ë°ì´í„° ì €ì¥
 			idx ++;
-			n = n.next; //´ÙÀ½³ëµåÀÌµ¿
+			n = n.next; //ë‹¤ìŒë…¸ë“œì´ë™
 		}
 		return Arrays.toString(arrays);
 	}
 	
-	public int searchNode(int idx, Object obj) { //data¸¦ °¡Áö´Â ¼­Ä¡ÇÔ¼ö ÀÎµ¦½º¸¦ ¸®ÅÏ¹ŞÀ»°ÍÀÌ±â ¶§¹®¿¡ intÇü
-		MyNode node = head;
-		int targetIdx = 0; // targetIdx ÃÊ±âÈ­
-		if(obj instanceof String) obj = String.valueOf(obj); //¸¸¾à obj°¡ stringÅ¸ÀÔÀÌ¶ó¸é Çüº¯È¯
-		else obj = Integer.parseInt(String.valueOf(obj)); //int Å¸ÀÔÀÌ¶ó¸é int Çüº¯È¯
+	public int searchNode(int idx, Object obj) { //dataë¥¼ ê°€ì§€ëŠ” ì„œì¹˜í•¨ìˆ˜ ì¸ë±ìŠ¤ë¥¼ ë¦¬í„´ë°›ì„ê²ƒì´ê¸° ë•Œë¬¸ì— intí˜•
+		Node node = head;
+		int targetIdx = 0; // targetIdx ì´ˆê¸°í™”
+		if(obj instanceof String) obj = String.valueOf(obj); //ë§Œì•½ objê°€ stringíƒ€ì…ì´ë¼ë©´ í˜•ë³€í™˜
+		else obj = Integer.parseInt(String.valueOf(obj)); //int íƒ€ì…ì´ë¼ë©´ int í˜•ë³€í™˜
 		for(int i = 0; i< idx; i++) {
-			if(node.getData().equals(obj)) { // ³ëµåÀÇdata°¡ obj°ú ÀÏÄ¡ÇÑ´Ù¸é break;
+			if(node.getData().equals(obj)) { // ë…¸ë“œì˜dataê°€ objê³¼ ì¼ì¹˜í•œë‹¤ë©´ break;
 				break;
 			}
-			targetIdx = i; //ÇØ´ç targetIdx¸¦ ÀÎµ¦½ºÀúÀå
+			targetIdx = i; //í•´ë‹¹ targetIdxë¥¼ ì¸ë±ìŠ¤ì €ì¥
 			node = node.next;  
 		}
 		return targetIdx;
 	}
 	
-	public MyNode searchNode(int idx) { //ÀÎµ¦½º·Î Ã£°íÇÏÀÚ´Â ³ëµå¸®ÅÏ
-		MyNode node = head; 
-		for(int i = 0; i < idx; i++) { //idx±îÁö ¼­Ä¡
+	public Node searchNode(int idx) { //ì¸ë±ìŠ¤ë¡œ ì°¾ê³ í•˜ìëŠ” ë…¸ë“œë¦¬í„´
+		Node node = head; 
+		for(int i = 0; i < idx; i++) { //idxê¹Œì§€ ì„œì¹˜
 			node = node.next;
 		}
 		return node; 
 	}
 	
 	public void addFirst(Object data) {
-		MyNode node = new MyNode(data);
+		Node node = new Node(data);
 		node.next = head;
 		head = node;
 		size ++ ;
 		node.data = data;
-		if(head.next == null ) tail=head;  //¸¸¾à À¯ÀÏÇÑ ³ëµåÀÏ°æ¿ì head¿Í tailÀº °°´Ù
+		if(head.next == null ) tail=head;  //ë§Œì•½ ìœ ì¼í•œ ë…¸ë“œì¼ê²½ìš° headì™€ tailì€ ê°™ë‹¤
 	}
 	
 	public void addLast(Object data) {
-		MyNode n = head;
-		if(n == null) addFirst(data); //³ëµå°¡ ¾ø´Ù¸é firstaddÇÔ¼ö
+		Node n = head;
+		if(n == null) addFirst(data); //ë…¸ë“œê°€ ì—†ë‹¤ë©´ firstaddí•¨ìˆ˜
 		else {
-			while(n.next != null) { //next°¡ ¾øÀ»¶§±îÁö 
-				n= n.next;          //´ÙÀ½³ëµå Å½»ö
+			while(n.next != null) { //nextê°€ ì—†ì„ë•Œê¹Œì§€ 
+				n= n.next;          //ë‹¤ìŒë…¸ë“œ íƒìƒ‰
 			}
-			MyNode addNode = new MyNode(data); //»õ·Î¿î ³ëµå ÀÎ½ºÅÏ½º »ı¼º
-			n.next = addNode;              //next ÀúÀå
+			Node addNode = new Node(data); //ìƒˆë¡œìš´ ë…¸ë“œ ì¸ìŠ¤í„´ìŠ¤ ìƒì„±
+			n.next = addNode;              //next ì €ì¥
 			size++;                        //cnt+1
-			tail = addNode;                //tail°ª ÀúÀå
+			tail = addNode;                //tailê°’ ì €ì¥
 		}
 	}
 	
 	public boolean add(Object obj) {
-		MyNode n = head;
-		if(n == null) addFirst(obj);  //³ëµå°¡ ¾ø´Ù¸é firstaddÇÔ¼ö
-		else addLast(obj);            //lastadd È£Ãâ
+		Node n = head;
+		if(n == null) addFirst(obj);  //ë…¸ë“œê°€ ì—†ë‹¤ë©´ firstaddí•¨ìˆ˜
+		else addLast(obj);            //lastadd í˜¸ì¶œ
 		return true;
 	}
 	
@@ -89,28 +88,28 @@ public class linkList {
 		if(idx < 0 ) throw new RuntimeException();
 		else if(idx == 1) addFirst(data);
 		else if(idx > 1) {
-			MyNode addNode = new MyNode(data); //³ëµå ÀÎ½ºÅÏ½º »ı¼º
-			MyNode tmp = searchNode(idx);    //¼­Ä¡ÇÒ³ëµå ÅÛÇÁ³ëµå¿¡ ÀúÀå
-			searchNode(idx - 1).next = addNode; // Ã£À»³ëµå ÀÌÀü³ëµåÀÇ next°ª ¼¼ÆÃ
-			addNode.next = tmp; //Ãß°¡ÇÒ ³ëµåÀÇ next ±âÁ¸¿¡ ÀúÀåÇÑ °ª
+			Node addNode = new Node(data); //ë…¸ë“œ ì¸ìŠ¤í„´ìŠ¤ ìƒì„±
+			Node tmp = searchNode(idx);    //ì„œì¹˜í• ë…¸ë“œ í…œí”„ë…¸ë“œì— ì €ì¥
+			searchNode(idx - 1).next = addNode; // ì°¾ì„ë…¸ë“œ ì´ì „ë…¸ë“œì˜ nextê°’ ì„¸íŒ…
+			addNode.next = tmp; //ì¶”ê°€í•  ë…¸ë“œì˜ next ê¸°ì¡´ì— ì €ì¥í•œ ê°’
 			size++; //size +1
 		}
 		return true;
 	}
 	
-	public Object remove() { // object ¹İÈ¯ÇÏ´Â removeÇÔ¼ö
-		Object tmp = head.data; // headÀÇ µ¥ÀÌÅÍ¸¦ ÅÛÇÁ¿¡ ÀúÀå
+	public Object remove() { // object ë°˜í™˜í•˜ëŠ” removeí•¨ìˆ˜
+		Object tmp = head.data; // headì˜ ë°ì´í„°ë¥¼ í…œí”„ì— ì €ì¥
 		head = head.next;       
 		size --;
 		return tmp;
 	}
 	
-	public void removeFirst() { //Ã¹¹øÂ° ¿ä¼Ò Áö¿ì´ÂÇÔ¼ö
+	public void removeFirst() { //ì²«ë²ˆì§¸ ìš”ì†Œ ì§€ìš°ëŠ”í•¨ìˆ˜
 		head = head.next;
 		size --;
 	}
 	
-	public void removeLast() { // ¸¶Áö¸·¿ä¼Ò Áö¿ì´ÂÇÔ¼ö
+	public void removeLast() { // ë§ˆì§€ë§‰ìš”ì†Œ ì§€ìš°ëŠ”í•¨ìˆ˜
 		remove(size - 1);
 	}
 	
@@ -118,9 +117,9 @@ public class linkList {
 	public void remove(int idx) {
 		if(idx < 1 || size < idx) throw new RuntimeException();
 		else if(idx == 0 ) removeFirst();
-		else if(idx == size-1 ) {  //size-1 ÀÎ ÀÌÀ¯´Â else¿¡¼­ »çÀÌÁîº¸´Ù ´õ ³ôÀº ÀÎµ¦½º¸¦ ¿ä±¸ÇÏ±â¿¡ ºÒ°¡´É
-			MyNode tmpNode = searchNode(idx - 1); //ÅÛÇÁ³ëµå¿¡ ÀúÀå
-			tmpNode.next = null; //nullÃ³¸®
+		else if(idx == size-1 ) {  //size-1 ì¸ ì´ìœ ëŠ” elseì—ì„œ ì‚¬ì´ì¦ˆë³´ë‹¤ ë” ë†’ì€ ì¸ë±ìŠ¤ë¥¼ ìš”êµ¬í•˜ê¸°ì— ë¶ˆê°€ëŠ¥
+			Node tmpNode = searchNode(idx - 1); //í…œí”„ë…¸ë“œì— ì €ì¥
+			tmpNode.next = null; //nullì²˜ë¦¬
 			size --;
 		}else {
 			searchNode(idx-1).next = searchNode(idx+1);
@@ -128,8 +127,8 @@ public class linkList {
 		}
 	}
 	
-	public boolean remove(Object obj) { // ³ëµåÀÇ data·Î Ã£´ÂÇÔ¼ö
-		remove(searchNode(size-1, obj)); //Ã£°íÀÚÇÏ´Â ³ëµåÀÇ ÀÎµ¦½º¹İÈ¯
+	public boolean remove(Object obj) { // ë…¸ë“œì˜ dataë¡œ ì°¾ëŠ”í•¨ìˆ˜
+		remove(searchNode(size-1, obj)); //ì°¾ê³ ìí•˜ëŠ” ë…¸ë“œì˜ ì¸ë±ìŠ¤ë°˜í™˜
 		return true;
 	}
 	

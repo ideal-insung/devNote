@@ -5,20 +5,20 @@ public class binarySearchTree {
 
 	private static Node root; //rootNode
 	
-	public void add(binarySearchTree bst , Scanner sc) { //Ãß°¡
-		System.out.println("°ªÀ» ¸î¹ø ³ÖÀ¸½Ã°Ú½À´Ï±î?");
+	public void add(binarySearchTree bst , Scanner sc) { //ì¶”ê°€
+		System.out.println("ê°’ì„ ëª‡ë²ˆ ë„£ìœ¼ì‹œê² ìŠµë‹ˆê¹Œ?");
 		int cnt = sc.nextInt();
 		sc.nextLine();
-		System.out.println(cnt+"¹ø ³ÖÀ»°Ô¿ä. ÀÔ·ÂÇØÁÖ¼¼¿ä!");
+		System.out.println(cnt+"ë²ˆ ë„£ì„ê²Œìš”. ì…ë ¥í•´ì£¼ì„¸ìš”!");
 		for(int i=1;i<=cnt;i++) {
 			bst.addNode(sc.nextInt());
 		}
 		System.out.println("add complete!");
 	}
 	
-	public void addNode(int val) { //Ãß°¡
+	public static void addNode(int val) { //ì¶”ê°€
 		Node newNode = new Node(val);
-		if(root == null) { //root°¡ nullÀÌ¸é  °´Ã¼»ı¼º
+		if(root == null) { //rootê°€ nullì´ë©´  ê°ì²´ìƒì„±
 			root = newNode;
 			return;
 		}
@@ -28,33 +28,33 @@ public class binarySearchTree {
 		
 		while(true) {
 			parentNode = currntNode ;
-			if( val < parentNode.getVal()) { // val°ªÀÌ ÇöÀç parentNodeº¸´Ù Å©´Ù¸é, ¿ŞÂÊÀ¸·Î °¡Áö¸¦ »¸¾î³ª°¡¾ß ÇÑ´Ù
+			if( val < parentNode.getVal()) { // valê°’ì´ í˜„ì¬ parentNodeë³´ë‹¤ í¬ë‹¤ë©´, ì™¼ìª½ìœ¼ë¡œ ê°€ì§€ë¥¼ ë»—ì–´ë‚˜ê°€ì•¼ í•œë‹¤
 				currntNode = currntNode.getLeft();
-				if(currntNode == null) {//null == >  ¸¶Áö¸·¿ä¼Ò
-					parentNode.setLeft(newNode); //ºÎ¸ğÀÇ left¿¡ ¼ÂÆÃ
+				if(currntNode == null) {//null == >  ë§ˆì§€ë§‰ìš”ì†Œ
+					parentNode.setLeft(newNode); //ë¶€ëª¨ì˜ leftì— ì…‹íŒ…
 					return;
-				}else if(currntNode.getVal() == newNode.getVal()) { //°ªÀÌ °°´Ù¸é ¸®ÅÏ
+				}else if(currntNode.getVal() == newNode.getVal()) { //ê°’ì´ ê°™ë‹¤ë©´ ë¦¬í„´
 					return;
 				}
-			}else if(val > parentNode.getVal()) { // val°ªÀÌ ÇöÀç parentNodeº¸´Ù Å©´Ù¸é, ¿À¸¥ÂÊÀ¸·Î °¡Áö¸¦ »¸¾î³ª°¡¾ß ÇÑ´Ù
+			}else if(val > parentNode.getVal()) { // valê°’ì´ í˜„ì¬ parentNodeë³´ë‹¤ í¬ë‹¤ë©´, ì˜¤ë¥¸ìª½ìœ¼ë¡œ ê°€ì§€ë¥¼ ë»—ì–´ë‚˜ê°€ì•¼ í•œë‹¤
 				currntNode = currntNode.getRight();
-				if(currntNode == null) { //null == >  ¸¶Áö¸·¿ä¼Ò
-					parentNode.setRight(newNode); //ºÎ¸ğÀÇ right¿¡ ¼ÂÆÃ
+				if(currntNode == null) { //null == >  ë§ˆì§€ë§‰ìš”ì†Œ
+					parentNode.setRight(newNode); //ë¶€ëª¨ì˜ rightì— ì…‹íŒ…
 					return;
-				}else if(currntNode.getVal() == newNode.getVal()) {//°ªÀÌ °°´Ù¸é ¸®ÅÏ
+				}else if(currntNode.getVal() == newNode.getVal()) {//ê°’ì´ ê°™ë‹¤ë©´ ë¦¬í„´
 					return;
 				}
 			}
 		}
 	}
 	
-	public Node delete(Node root, int number) { //»èÁ¦
+	public Node delete(Node root, int number) { //ì‚­ì œ
 		if(root == null) return null;
 		if(number <root.getVal()) {
-			if(root.getLeft() == null) System.out.println(number+"°ªÀÌ ¾ø½À´Ï´Ù!");
+			if(root.getLeft() == null) System.out.println(number+"ê°’ì´ ì—†ìŠµë‹ˆë‹¤!");
 			else root.setLeft(delete(root.getLeft(), number));
 		}else if(number > root.getVal()) {
-			if(root.getRight() == null) System.out.println(number+"°ªÀÌ ¾ø½À´Ï´Ù!");
+			if(root.getRight() == null) System.out.println(number+"ê°’ì´ ì—†ìŠµë‹ˆë‹¤!");
 			else root.setRight(delete(root.getRight(), number));
 		}else {
 			if(root.getLeft() == null && root.getRight() == null) return null;
@@ -67,18 +67,18 @@ public class binarySearchTree {
 		return root;
 	}
 	
-	public Node search(Node root, int number) { //Ã£±â
+	public Node search(Node root, int number) { //ì°¾ê¸°
 		if(root == null) return null;
-		if(number == root.getVal()) { //Ã£°íÀÚ ÇÏ´Â °ªÀÌ root¿¡ ÀÖ´Ù¸é,
+		if(number == root.getVal()) { //ì°¾ê³ ì í•˜ëŠ” ê°’ì´ rootì— ìˆë‹¤ë©´,
 			return root;
-		}else if(number <= root.getVal()) { //·çÆ®ÀÇ °ªÀÌ ´õÅ©´Ù¸é
+		}else if(number <= root.getVal()) { //ë£¨íŠ¸ì˜ ê°’ì´ ë”í¬ë‹¤ë©´
 			return search(root.getLeft(), number);
 		}else { 
 			return search(root.getRight(), number);
 		}
 	}
 	
-	public Node findMax(Node root) { // ÃÖ´ñ°ªÃ£±â
+	public Node findMax(Node root) { // ìµœëŒ“ê°’ì°¾ê¸°
 		if(root == null) return null;
 		if(root.getRight() != null) {
 			return findMax(root.getRight());
@@ -86,7 +86,7 @@ public class binarySearchTree {
 		return root;
 	}
 	
-	public Node findMini(Node root) { // ÃÖ¼Ú°ªÃ£±â
+	public Node findMini(Node root) { // ìµœì†Ÿê°’ì°¾ê¸°
 		if(root == null) return null;
 		if(root.getLeft() != null) {
 			return findMini(root.getLeft());
@@ -95,12 +95,12 @@ public class binarySearchTree {
 	}
 	
 	public void show() {
-		System.out.println("¿À¸§¼øÈ¸:");
+		System.out.println("ì˜¤ë¦„ìˆœíšŒ:");
 		leftInorder(root);
 		System.out.println();
 	}
 	
-	public void leftInorder(Node node) { //¿À¸§Â÷¼ø
+	public void leftInorder(Node node) { //ì˜¤ë¦„ì°¨ìˆœ
 		if(node == null) return;
 		leftInorder(node.getLeft());
 		System.out.println(node.getVal());
@@ -117,42 +117,4 @@ public class binarySearchTree {
 		System.out.println("show");
 		System.out.println("exit");
 	}
-	
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		binarySearchTree bst = new binarySearchTree();
-		bst.showList();
-		while(true) {
-			String command = sc.next().trim();
-			if(command.equals("add")) {
-				bst.add(bst, sc);
-			}else if(command.equals("delete")) {
-				System.out.println("»èÁ¦ÇÒ Á¤¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
-				int num = sc.nextInt();
-				System.out.println("»èÁ¦ÇÒ Á¤¼ö :" + num);
-				bst.delete(root, num);
-				System.out.println("»èÁ¦°¡ ¿Ï·áµÇ¾ú½À´Ï´Ù.");
-			}else if(command.equals("search")) {
-				System.out.println("°Ë»öÇÒ Á¤¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
-				int num = sc.nextInt();
-				System.out.println("°Ë»öÇÒ Á¤¼ö :" + num);
-				Node findNode = bst.search(root, num);
-				if(findNode == null) System.out.println("°Ë»öÇÑ °ªÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.");
-				else System.out.println("°Ë»öÇÑ °ªÀÌ Á¸ÀçÇÕ´Ï´Ù!" + findNode.getVal());
-			}else if(command.equals("max")) {
-				Node maxNode = bst.findMax(root);
-				System.out.println("°¡Àå Å« °ªÀº " + maxNode.getVal() + "ÀÔ´Ï´Ù!");
-			}else if(command.equals("min")) {
-				Node minNode = bst.findMini(root);
-				System.out.println("°¡Àå ÀÛÀº °ªÀº " + minNode.getVal() + "ÀÔ´Ï´Ù!");
-			}else if(command.equals("show")) {
-				bst.show();
-			}else if(command.equals("exit")) {
-				return;
-			}else {
-				System.out.println("Àß¸ø ÀÔ·ÂÇÏ¼Ì½À´Ï´Ù.");
-			}
-		}
-	}
-	
 }
