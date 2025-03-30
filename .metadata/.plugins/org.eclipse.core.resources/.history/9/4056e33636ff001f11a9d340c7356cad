@@ -1,0 +1,91 @@
+package data_structure;
+
+import java.util.Scanner;
+
+public class binarySearchTree {
+
+	private static Node root; //rootNode
+	
+	public static void show(Node node) {
+		System.out.println("오름순회:");
+		leftInorder(node);
+		System.out.println();
+	}
+	
+	public static void leftInorder(Node node) {
+		if(node == null) return;
+		leftInorder(node.getLeft());
+		System.out.println(node.getVal());
+		leftInorder(node.getRight());
+	}
+	
+	public static void addNode(int val) {
+		Node newNode = new Node(val);
+		if(root == null) {
+			root = newNode;
+			return;
+		}
+		
+		Node currntNode = root;
+		Node parentNode = null;
+		
+		while(true) {
+			parentNode = currntNode ;
+			if( val > currntNode.getVal()) {
+				currntNode = currntNode.getLeft();
+				if(currntNode == null) {
+					parentNode.setLeft(newNode);
+					return;
+				}else if(currntNode.getVal() == newNode.getVal()) {
+					return;
+				}
+			}else if(val <= currntNode.getVal()) {
+				currntNode = currntNode.getRight();
+				if(currntNode == null) {
+					parentNode.setRight(newNode);
+					return;
+				}else if(currntNode.getVal() == newNode.getVal()) {
+					return;
+				}
+			}
+		}
+	}
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("1 - add ");
+		System.out.println("2 - delete");
+		System.out.println("3 - search");
+		System.out.println("4 - maximum");
+		System.out.println("5 - minimum");
+		System.out.println("6 - inorderShow");
+
+		int key = sc.nextInt();
+		switch (key) {
+		case 1:
+			System.out.println("값을 몇번 넣으시겠습니까?");
+			int cnt = sc.nextInt();
+			binarySearchTree bts = new binarySearchTree();
+			for(int i=1;i<=cnt;i++) {
+				bts.addNode(sc.nextInt());
+				sc.nextLine();
+			}
+			sc.close();
+			bts.show();
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		case 4:
+			break;
+		case 5:
+			break;
+		case 6:
+			break;
+
+		default:
+			break;
+		}
+	}
+}

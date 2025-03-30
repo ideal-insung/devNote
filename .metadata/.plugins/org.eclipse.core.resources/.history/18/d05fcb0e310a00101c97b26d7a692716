@@ -1,0 +1,13 @@
+package algorithm;
+
+public class fibo {
+
+	public int fibo(int x) {
+		if(2 > x) return x;
+		else return fibo(x-1) + fibo(x-2);
+	}
+	
+	public static void main(String[] args) {
+		
+	}
+}

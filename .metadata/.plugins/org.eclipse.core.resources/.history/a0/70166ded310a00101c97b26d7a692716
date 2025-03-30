@@ -1,0 +1,30 @@
+package algorithm;
+
+public class fibo {
+
+	public int fibo_sequence(int x) {
+		if(x == 0) return x;
+		else if(x == 1) return x;
+		else return fibo_sequence(x-1) + fibo_sequence(x-2);
+	}
+	
+	public int recursive(int n) {
+        if (n == 0) {
+            return 0;
+        } else if (n == 1) {
+            return 1;
+        } else {
+            return recursive(n - 1) + recursive(n - 2);
+        }
+    }
+	
+	public static void main(String[] args) {
+		
+		fibo f = new fibo();
+		//System.out.println(f.recursive(5));
+		int n = 10;  // 원하는 피보나치 수열의 항 개수
+        for (int i = 0; i < n; i++) {
+            System.out.print(f(i) + " ");
+        }
+	}
+}

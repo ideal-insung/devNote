@@ -1,0 +1,19 @@
+package data_structure;
+
+import java.util.ArrayList;
+
+public class Graph {
+
+	private ArrayList<ArrayList<Integer>> adjacencyList;
+	private int vertexCnt;
+	
+    public Graph(Graph ghp, int size) {
+		this.vertexCnt = size;
+		this.adjacencyList= new ArrayList<ArrayList<Integer>>();
+	}
+    
+    public void addVertex(int a) {
+    	adjacencyList.add(new ArrayList<ArrayList<Integer>>());
+    }
+    
+}

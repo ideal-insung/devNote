@@ -1,0 +1,57 @@
+package algorithm;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Stack;
+
+import data_structure.LinkedListGraph;
+import data_structure.LinkedListStack;
+import data_structure.linkList;
+import data_structure.linkList.MyNode;
+
+public class DFS { //Depth first search
+
+	boolean visited [];
+	LinkedList<Integer> []array;
+	
+	public DFS(LinkedListGraph graph, int size) {
+		this.array  = graph.array;
+		this.visited = new boolean[size];
+	}
+	public void dfs_recursion(int start) {
+		visited[start] = true;
+		for(int a : array[start]) {
+			if(!visited[a]) {
+				visited[a] = true;
+				dfs_recursion(a);
+			}
+			//showArray(a);
+		}
+		
+	}
+	
+	public void dfs_stack(LinkedListGraph lls,int start) {
+		LinkedList<Integer>[] array = lls.array;
+		Stack<Integer> stack = new Stack<Integer>();
+		boolean visited [] = new boolean[array.length];
+		stack.push(start);
+		visited[start] =true;
+		System.out.print("방문순서:");
+		while(!stack.empty()) {
+			int popData = stack.pop();
+			for(int a : array[popData]) {
+				if(!visited[a]) {
+					visited[a] = true;
+					stack.push(a);
+				}
+			}
+			showArray(popData);
+		}
+	}
+	
+	public void showArray(int data) {
+		System.out.print(" "+data);
+	}
+	
+	
+}

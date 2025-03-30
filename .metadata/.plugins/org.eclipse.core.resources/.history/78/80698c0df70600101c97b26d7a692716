@@ -1,0 +1,52 @@
+package data_structure;
+
+import java.util.LinkedList;
+import java.util.Stack;
+
+public class LinkedListGraph {
+
+	public LinkedList<Integer>[] array;
+	public int vertexCnt;
+	
+	public LinkedListGraph(int size) {
+		this.vertexCnt = size;
+		this.array = new LinkedList[size];
+		for(int i=0; i<size; i++) {
+			array[i] = new LinkedList();
+		}
+	}
+	
+	public void addEdge(int x, int y) {
+		this.array[x].add(y);
+		this.array[y].add(x);
+	}
+	
+	
+	public void display() {
+		for(int i=0;i<=vertexCnt-1;i++) {
+			System.out.print("vertex "+i+":");
+			System.out.print(array[i]);
+			System.out.println();
+		}
+	}
+	
+	public void dfs(int start) {
+		Stack<Integer> stack = new Stack<>();
+		boolean []isVisited =  new boolean[array.length];
+		
+		stack.push(start);
+		isVisited[start] = true;
+		
+		while(!stack.isEmpty()) {
+			int pop = stack.pop();
+			System.out.println("pop == >" + pop);
+			for(int a : array[pop]) {
+				if(!isVisited[a]) {
+					stack.push(a);
+					isVisited[a] =true;
+				}
+			}
+		}
+		
+	}
+}

@@ -1,0 +1,25 @@
+package algorithm;
+
+import data_structure.LinkedListGraph;
+import data_structure.LinkedListStack;
+import data_structure.MyNode;
+
+public class DFS { //Depth first search
+
+	
+	public void dfs_stack(LinkedListGraph graph,int start) {
+		int visited [] = new int[graph.vertexCnt];
+		LinkedListStack stack = new LinkedListStack();
+		MyNode curNode;
+		stack.push(start);
+		visited[start]++;
+		while(!stack.isEmty()) {
+			int popData = (int) stack.pop();
+			curNode.data = popData;
+			System.out.println("popData == > " + popData );
+			System.out.println(curNode.next.getData());
+		}
+		
+	}
+	
+}

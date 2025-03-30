@@ -1,0 +1,15 @@
+package algorithm;
+
+import data_structure.LinkedListGraph;
+import data_structure.LinkedListStack;
+
+public class DFS { //Depth first search
+
+	LinkedListStack stack;
+	
+	public void dfs_stack(LinkedListGraph graph,int start) {
+		int visited [] = new int[graph.vertexCnt-1];
+		System.out.println(visited.length );
+	}
+	
+}

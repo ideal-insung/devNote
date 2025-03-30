@@ -1,0 +1,31 @@
+package data_structure;
+
+public class queueMain {
+	public static void main(String[] args) {
+		ArrayQueue queue = new ArrayQueue(5);
+		queue.inQue("A");  //A
+		queue.inQue("B");  //AB
+		queue.inQue("C");  //ABC
+		queue.inQue("D");  //ABCD
+		queue.inQue("E");  //ABCDE
+		
+		//System.out.println("queue.front == > " + queue.front);
+		//System.out.println("queue.rear == > " + queue.rear);
+		//System.out.println("queue.cnt == > " + queue.cnt);
+		
+		queue.deQue();     //BCDE
+		queue.deQue();     //CDE
+		//System.out.println("queue.front == > " + queue.front);
+		//System.out.println("queue.rear == > " + queue.rear);
+		//System.out.println("queue.cnt == > " + queue.cnt);
+		queue.inQue("F");  //CDEF
+		
+		
+		//System.out.println("queue.front == > " + queue.front);
+		//System.out.println("queue.rear == > " + queue.rear);
+		//System.out.println("queue.cnt == > " + queue.cnt);
+		for(int i = queue.front; i<queue.front+queue.cnt; i++) {
+			System.out.println(String.valueOf(queue.data[i%queue.size]));
+		}
+	}
+}

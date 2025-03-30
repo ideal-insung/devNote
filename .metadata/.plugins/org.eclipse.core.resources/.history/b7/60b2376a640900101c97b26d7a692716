@@ -1,0 +1,21 @@
+package algorithm;
+
+import java.util.ArrayList;
+
+/*
+UnionFind 알고리즘 선행학습 필요
+해당 배열의 대표값을 인덱스가 가장 작은값으로 수정(연결이 되어있다면 그래프가)
+ 
+*/
+public class MST {
+   
+	int prvNum[];
+	
+	public MST(int size) { //배열값에 인덱스만 큼의 값을 초기화
+		prvNum = new int[size];
+		for(int i =1; i<size;i++) {
+			prvNum[i] = i;
+		}
+	
+	}
+}

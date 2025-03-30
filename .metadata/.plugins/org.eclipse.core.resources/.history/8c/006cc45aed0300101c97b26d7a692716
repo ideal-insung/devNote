@@ -1,0 +1,37 @@
+package data_structure;
+
+public class LinkedListQueue {
+
+	MyNode head = null; 
+	MyNode tail = null;
+	
+	public boolean isEmpty() {
+		return head == null;
+	}
+	
+	public void enQueue(Object data) {
+		MyNode newNode = new MyNode();
+		newNode.data = data; //newNode value 초기화
+		newNode.next = null; //newNode next 초기화
+
+		if(isEmpty()) { //큐가 비어있다면,
+			this.head= newNode; 
+			this.tail = newNode;
+			return;
+		}
+
+		this.tail.next = newNode;
+		this.tail = newNode;
+	}
+	
+	public Object deQueue() {
+		if(isEmpty()) throw new NullPointerException();
+		Object obj = this.head.data;
+		MyNode tmpNode = this.head;
+		this.head = this.head.next;
+		tmpNode.next = null;
+		tmpNode.data = null;
+		if(this.head == null) this.tail = null;
+		return obj;
+	}
+}

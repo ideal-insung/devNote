@@ -1,0 +1,20 @@
+package data_structure;
+
+public class queueMain {
+	public static void main(String[] args) {
+		ArrayQueue queue = new ArrayQueue(5);
+		queue.inQue("A");
+		queue.inQue("B");
+		queue.inQue("C");
+		queue.inQue("D");
+		queue.inQue("E");
+		
+		queue.deQue();
+		queue.deQue();
+		queue.inQue("F");
+		
+		for(int i = queue.front; i<queue.rear; i++) {
+			System.out.println(String.valueOf(queue.data[i]));
+		}
+	}
+}

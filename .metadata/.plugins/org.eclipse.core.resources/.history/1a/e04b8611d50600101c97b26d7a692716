@@ -1,0 +1,18 @@
+package data_structure;
+
+public class GraphMain {
+
+	
+	public static void main(String[] args) {
+		
+		ArrayGraph ag = new ArrayGraph(5);
+		ag.display();
+		//ag.addDirectArray(1, 4, 1);
+		//ag.addDirectArray(1, 3, 1);
+		//ag.addDirectArray(2, 5, 1);
+		//ag.addDirectArray(3, 4, 1);
+		//ag.addDirectArray(3, 5, 1);
+		
+		//ag.display();
+	}
+}

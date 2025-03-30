@@ -1,0 +1,15 @@
+package algorithm;
+
+public class fibo {
+
+	public int fibo_sequence(int x) {
+		if(x<1) return x;
+		return fibo_sequence(x-1) + fibo_sequence(x-2);
+	}
+	
+	public static void main(String[] args) {
+		
+		fibo f = new fibo();
+		System.out.println(f.fibo_sequence(5));
+	}
+}

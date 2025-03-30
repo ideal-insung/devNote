@@ -1,0 +1,29 @@
+package algorithm;
+
+public class fibo {
+	static int[] memo = new int[101];
+	public int fibo_sequence(int x) {
+		if(x==0) return x;
+		else if(x==1) return x;
+		else {
+			int fibPrev = 0;
+            int fibCurr = 1;
+			for(int i=2;i<=x;i++) {
+				int temp = fibCurr;
+	            fibCurr = fibPrev + fibCurr;
+	            fibPrev = temp;
+				return fibCurr;
+			}
+		}
+	}
+	
+	public static void main(String[] args) {
+		fibo f = new fibo();
+		for(int i=1; i<11;i++) {
+			System.out.println(f.fibo_sequence(i));
+		}
+		System.out.println("@@@@");
+		System.out.println(f.fibo_sequence(10));
+	}
+}
+

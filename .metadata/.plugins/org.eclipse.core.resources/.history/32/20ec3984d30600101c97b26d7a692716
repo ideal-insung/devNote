@@ -1,0 +1,9 @@
+package data_structure;
+
+public class ArrayGraph {
+	int size;
+	
+	ArrayGraph(int size){
+		this.size = size;
+	}
+}

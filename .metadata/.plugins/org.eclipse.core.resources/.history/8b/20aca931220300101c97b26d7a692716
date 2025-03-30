@@ -1,0 +1,19 @@
+package data_structure;
+
+public class StackMain {
+
+	public static void main(String[] args) {
+		ArrayStack as = new ArrayStack(5);
+		as.push("A");
+		as.push("B");
+		as.push("C");
+		as.push("D");
+		as.push("E");
+		as.push("F");
+		as.pop();
+		as.peek();
+		for(int i = as.top; i>=0;i--) {
+			System.out.println(String.valueOf(as.data[i]));
+		}
+	}
+}

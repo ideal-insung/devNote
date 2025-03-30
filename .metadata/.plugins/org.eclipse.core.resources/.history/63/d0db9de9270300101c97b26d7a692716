@@ -1,0 +1,9 @@
+package data_structure;
+
+public class queueMain {
+
+	
+	public static void main(String[] args) {
+		
+	}
+}

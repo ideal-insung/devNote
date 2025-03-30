@@ -1,0 +1,12 @@
+package algorithm;
+
+import data_structure.LinkedListGraph;
+import data_structure.LinkedListStack;
+
+public class DFS { //Depth first search
+
+	LinkedListStack stack;
+	
+	LinkedListGraph lls = new LinkedListGraph(10);
+	
+}

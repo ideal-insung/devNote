@@ -1,0 +1,12 @@
+package algorithm;
+
+public class MSTmain {
+
+	
+	public static void main(String[] args) {
+		MST mst = new MST(7);
+		for(int a : mst.prvNum) {
+			System.out.println(a);
+		}
+	}
+}

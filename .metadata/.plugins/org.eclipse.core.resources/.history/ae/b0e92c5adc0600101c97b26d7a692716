@@ -1,0 +1,19 @@
+package data_structure;
+
+import java.util.ArrayList;
+
+public class LinkedListGraph {
+
+	ArrayList<Integer>[] array;
+	int vertexCnt;
+	
+	public void graphInit(Graph ghp, int size) {
+		this.vertexCnt = size;
+		int head[] = new LinkedListGraph();
+		for(int i=0; i<size; i++) {
+			this.head[i].data = i;
+			this.head[i].cost = 1;
+			this.head[i].next = null;
+		}
+	}
+}

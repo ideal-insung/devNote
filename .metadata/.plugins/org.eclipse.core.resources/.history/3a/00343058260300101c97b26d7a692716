@@ -1,0 +1,16 @@
+package data_structure;
+
+public class Queue {
+
+	int front; // deque ¿Œµ¶Ω∫
+	int near;  // inque ¿Œµ¶Ω∫
+	int size;  // 
+	Object data[];
+	
+	public Queue() {
+		this.front = 0;
+		this.near = 0;
+		this.size = 0;
+		this.data = null;
+	}
+}

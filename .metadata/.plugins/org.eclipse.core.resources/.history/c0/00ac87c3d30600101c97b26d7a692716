@@ -1,0 +1,12 @@
+package data_structure;
+
+public class ArrayGraph {
+	private int size;
+	private int [][]array;
+	
+	public ArrayGraph(int size){
+		this.size = size;
+		this.array = new int[size-1][size-1];
+	}
+	
+}

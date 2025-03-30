@@ -1,0 +1,12 @@
+package data_structure;
+
+public class LinkedListGraph {
+
+	MyNode head[];
+	int vertexCnt;
+	
+	public void graphInit(Graph ghp, int size) {
+		this.vertexCnt = size;
+		
+	}
+}

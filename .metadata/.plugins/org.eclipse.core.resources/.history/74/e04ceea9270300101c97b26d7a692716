@@ -1,0 +1,36 @@
+package data_structure;
+
+public class ArrayQueue {
+
+	int front; // deque ¿Œµ¶Ω∫
+	int rear;  // inque ¿Œµ¶Ω∫
+	int size;  // 
+	int cnt;
+	Object data[];
+	
+	public ArrayQueue(int size) {
+		this.front = 0;
+		this.rear = 0;
+		this.size = size;
+		this.data = new Object[size];
+	}
+	
+	public boolean isEmpty() {
+		return (rear == front) && cnt < 0;
+	}
+	
+	public boolean isFull() {
+		return (rear == front) && cnt >= 0;
+	}
+	
+	public void inQue(Object obj) {
+        if(isFull()) throw new IndexOutOfBoundsException()
+		data[rear++] = obj;
+	}
+	
+	public Object deQue() {
+		
+	}
+	
+	
+}

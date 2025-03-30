@@ -1,0 +1,96 @@
+package kote;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
+/*
+8 8
+WBWBWBWB
+BWBWBWBW
+WBWBWBWB
+BWBBBWBW
+WBWBWBWB
+BWBWBWBW
+WBWBWBWB
+BWBWBWBW
+
+
+10 13
+BBBBBBBBWBWBW
+BBBBBBBBBWBWB
+BBBBBBBBWBWBW
+BBBBBBBBBWBWB
+BBBBBBBBWBWBW
+BBBBBBBBBWBWB
+BBBBBBBBWBWBW
+BBBBBBBBBWBWB
+WWWWWWWWWWBWB
+WWWWWWWWWWBWB
+
+9 23
+BBBBBBBBBBBBBBBBBBBBBBB
+BBBBBBBBBBBBBBBBBBBBBBB
+BBBBBBBBBBBBBBBBBBBBBBB
+BBBBBBBBBBBBBBBBBBBBBBB
+BBBBBBBBBBBBBBBBBBBBBBB
+BBBBBBBBBBBBBBBBBBBBBBB
+BBBBBBBBBBBBBBBBBBBBBBB
+BBBBBBBBBBBBBBBBBBBBBBB
+BBBBBBBBBBBBBBBBBBBBBBW
+
+11 12
+BWWBWWBWWBWW
+BWWBWBBWWBWW
+WBWWBWBBWWBW
+BWWBWBBWWBWW
+WBWWBWBBWWBW
+BWWBWBBWWBWW
+WBWWBWBBWWBW
+BWWBWBWWWBWW
+WBWWBWBBWWBW
+BWWBWBBWWBWW
+WBWWBWBBWWBW
+
+8 8
+WBWBWBWB
+BWBWBWBW
+WBWBWBWB
+BWBBBWBW
+WBWBWBWB
+BWBWBWBW
+WBWBWBWB
+BWBWBWBW
+*/
+public class back1018 {
+
+	public static void main(String[] args) throws IOException{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+		int N = Integer.parseInt(st.nextToken());
+		int M = Integer.parseInt(st.nextToken());
+		char arr[][] = new char[N][M];
+		int cnt = 0;
+		
+		for(int i=0; i< N; i++) {
+			String line = br.readLine();
+			arr[i]= line.toCharArray();
+		}
+		
+		for(int i=0; i< N; i++) {
+			for(int j=0; j<M;j++) {
+				if(i%2 == 0 && arr[i][0] == 'W') {
+					if(i%2 == 1 && arr[i][0] != 'W') cnt++;
+				}else {
+					if(i%2 == 0 && arr[i][0] != 'W') cnt++;
+				}
+				if(arr[i][j-1] != arr[i][j]) cnt++;
+			}
+			System.out.println();
+		}
+		System.out.println(cnt);
+		br.close();
+	}
+}

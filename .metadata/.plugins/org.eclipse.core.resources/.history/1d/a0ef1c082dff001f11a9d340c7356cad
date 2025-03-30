@@ -1,0 +1,54 @@
+package sort;
+
+public class HeapSort {
+
+	public static void heapSort(int[] data) {
+		heapSort(data,data.length);
+	}
+	public static void heapSort(int[] data, int size) {
+		if(data.length < 2) return;
+		for(int i=size-1; i > 0; i--) {
+			heapfiy(data,i,size);
+		}
+		
+		for(int i=size-1; i>0;i--) {
+			swap(data,0,i);
+			heapfiy(data,0,i);
+		}
+	}
+	
+	public static void heapfiy(int[] data, int parentIdx, int size) {
+		int leftIdx  = parentIdx * 2 + 1;
+		int rightIdx = leftIdx +1;
+		int largeIdx = -1;
+		
+		if(leftIdx < size && data[leftIdx] > data[rightIdx]) {
+			largeIdx = leftIdx;
+		}else if(rightIdx < size && data[leftIdx] < data[rightIdx]) {
+			largeIdx = rightIdx;
+		}
+		if(largeIdx != -1 && data[largeIdx] > data[parentIdx]) {
+			swap(data,largeIdx,parentIdx);
+			heapfiy(data, largeIdx, size-1);
+		}
+	}
+	
+	public static void swap(int data[], int i , int j) {
+		int temp; // swap 하기 위한  temp 데이터
+		temp    = data[i]; 
+		data[i] = data[j]; 
+		data[j] = temp;
+	}
+	
+	public static void printArray(int data[]) {
+		for(int a : data) {
+			System.out.print(a+",");
+		}
+	}
+	
+	public static void main(String[] args) {
+		int []data = {4,2,1,7,5,6,8};
+		heapSort(data);
+		printArray(data);
+	}
+}
