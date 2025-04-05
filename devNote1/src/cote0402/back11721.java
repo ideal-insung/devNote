@@ -11,19 +11,11 @@ public class back11721 {
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String text = br.readLine();
-		int add = 10;
-		String a[] = new String[text.length()/add+1];
-		a[0] = text.substring(0,add);
-		for(int i=0;i<a.length;i++) {
-			if(i == a.length-1) {
-				a[i] = text.substring(i*add);
-				break;
+		for(int i=0;i<text.length();i++) {
+			if(i!=0 && i%10 == 0) {
+				System.out.println();
 			}
-			a[i] = text.substring(i*add,(i+1)*add);
-			
-			for(String b:a) {
-				System.out.println(b);
-			}
+			System.out.print(text.charAt(i));
 		}
 	}
 }
