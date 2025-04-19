@@ -4,44 +4,29 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class back1212 {
-    public static void getTwo(int n){
 
-        /*if (n == 0) {
-            System.out.print("0");
-            return;
-        }
 
-        ArrayList<Integer>list =new ArrayList<>();
-        while(n>0) {
-            list.add(n % 2);
-            n = n / 2;
-        }
-
-        for(int i = list.size() - 1; i >= 0; i--){
-            System.out.print(list.get(i));
-        }*/
-
-        String binary = Integer.toBinaryString(n);
-
-        // 3. 출력
-        System.out.println(binary);
-    }
-
-    public static int getTen(String n){
-        char arr[] = n.toCharArray();
-        int size = arr.length;
-        int sum = 0;
-        for(int i=size-1;i>=0;i--){
-            char c = arr[size-1-i];
-            sum+= (c-'0')* Math.pow(8,i);
-        }
-        return sum;
-    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String n = sc.next();
+        char[] n = sc.next().toCharArray();
 
-        int a = getTen(n);
-        getTwo(a);
+        for(int i=0;i<n.length;i++){
+            if(i == 0){
+                if(n[i] == '0') System.out.print("0");
+                else if(n[i] == '1') System.out.print("1");
+                else if(n[i] == '2') System.out.print("10");
+                else if(n[i] == '3') System.out.print("11");
+            }else{
+                if(n[i] == '0') System.out.print("000");
+                else if(n[i] == '1') System.out.print("001");
+                else if(n[i] == '2') System.out.print("010");
+                else if(n[i] == '3') System.out.print("011");
+            }
+            if(n[i] == '4') System.out.print("100");
+            else if(n[i] == '5') System.out.print("101");
+            else if(n[i] == '6') System.out.print("110");
+            else if(n[i] == '7') System.out.print("111");
+        }
+
     }
 }
