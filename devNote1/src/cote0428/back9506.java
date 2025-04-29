@@ -12,11 +12,12 @@ public class back9506 {
             ArrayList<Integer> list = isPerfect(n);
 
             if(list != null){
-                System.out.print(n + "=");
+                System.out.print(n + " = ");
                 for(int i=0;i<list.size();i++){
                     if(i == list.size()-1) System.out.print(list.get(i));
                     else System.out.print(list.get(i) + " + ");
                 }
+                System.out.println();
             }else{
                 System.out.println(n + " is NOT perfect.");
             }
